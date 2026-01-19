@@ -1,12 +1,15 @@
+import Providers from '@/components/providers';
+import { router } from '@/libs/router';
 import '@repo/ui/styles.css';
-
-import { Button } from '@repo/ui';
 import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router';
+
+import '@/styles/global.css';
 
 const App = () => (
-  <div>
-    <Button>Click me</Button>
-  </div>
+  <Providers>
+    <RouterProvider router={router} />
+  </Providers>
 );
 
 createRoot(document.getElementById('app')!).render(<App />);
