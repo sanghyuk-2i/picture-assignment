@@ -9,6 +9,30 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary'],
+    },
+    fullWidth: {
+      control: 'boolean',
+    },
+    loading: {
+      control: 'boolean',
+    },
+    loadingText: {
+      control: 'text',
+    },
+    leftDecorator: {
+      control: 'object',
+    },
+    rightDecorator: {
+      control: 'object',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
