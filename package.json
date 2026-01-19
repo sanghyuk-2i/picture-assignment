@@ -4,12 +4,19 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "dev:storybook": "turbo run dev --filter=storybook",
+    "build:storybook": "turbo run build --filter=storybook",
+    "dev:web": "turbo run dev --filter=web",
+    "build:web": "turbo run build --filter=web",
+    "dev:ui": "turbo run dev --filter=ui",
+    "build:ui": "turbo run build --filter=ui"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
     "prettier": "^3.5.3",
-    "turbo": "^2.7.5"
+    "turbo": "^2.7.5",
+    "prettier-plugin-tailwindcss": "^0.7.2"
   },
   "packageManager": "pnpm@8.15.6",
   "name": "picture-assignment"

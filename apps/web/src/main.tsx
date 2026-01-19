@@ -1,22 +1,11 @@
-import './style.css';
+import '@repo/ui/styles.css';
 
-import { Counter, Header } from '@repo/ui';
+import { Button } from '@repo/ui';
 import { createRoot } from 'react-dom/client';
-
-import typescriptLogo from '/typescript.svg';
 
 const App = () => (
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" className="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src={typescriptLogo} className="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <Header title="Web" />
-    <div className="card">
-      <Counter />
-    </div>
+    <Button>Click me</Button>
   </div>
 );
 
