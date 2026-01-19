@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -20,8 +20,8 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^3.1.0",
-    "eslint": "^8.57.0",
-    "typescript": "5.5.4",
-    "vite": "^5.1.4"
+    "eslint": "^9.39.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4"
   }
 }
