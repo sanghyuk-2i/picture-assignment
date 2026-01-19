@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 
 const Page = () => {
   const navigate = useNavigate();
-  const { data: pictureInfo } = usePictureInfo({ id: '1' });
+  const { data: pictureInfo } = usePictureInfo({ id: '0' });
 
   const handlePrev = () => {
     navigate('/');
