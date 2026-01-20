@@ -1,6 +1,6 @@
 import { usePictureStore } from '@/stores/picture';
 import { NoDataError } from '@/utils/error';
-import { Button, cn, Flex, Grid } from '@repo/ui';
+import { Button, cn, Flex, Grid, Image } from '@repo/ui';
 import { ReactNode } from 'react';
 
 import { useNavigate } from 'react-router';
@@ -75,10 +75,17 @@ const Page = () => {
         />
       </div>
 
-      <Grid className="h-full items-center px-5 lg:grid-cols-2 lg:gap-20">
-        <img src={pictureInfo.urls.download} alt={pictureInfo.author} className="my-10 rounded-2xl" />
+      <Grid className="h-fit items-center px-5 lg:h-full lg:grid-cols-2 lg:gap-20">
+        <div className="my-10">
+          <Image
+            src={pictureInfo.urls.download}
+            alt={pictureInfo.author}
+            aspectRatio={`${pictureInfo.size.width.value} / ${pictureInfo.size.height.value}`}
+            className="rounded-2xl"
+          />
+        </div>
 
-        <Flex direction="column" className="gap-3 pb-10">
+        <Flex direction="column" className="gap-3 pb-10 lg:pb-0">
           <Flex direction="column" className="w-full gap-3">
             <InfoCard className="md:grid-cols-2">
               <InfoCardItem label="id" value={pictureInfo.id} />

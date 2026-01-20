@@ -3,7 +3,7 @@
   "include": ["src"],
   "compilerOptions": {
     "jsx": "react-jsx",
-
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
