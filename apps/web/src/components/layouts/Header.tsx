@@ -1,7 +1,14 @@
-const Header = () => {
+import { cn } from '@repo/ui';
+
+interface HeaderProps {
+  title: string;
+  titleClassName?: string;
+}
+
+const Header = ({ title, titleClassName }: HeaderProps) => {
   return (
     <header className="px-5 py-[15.5px] text-center">
-      <h1>이상혁</h1>
+      <h1 className={cn('text-[0.933rem] font-medium', titleClassName)}>{title}</h1>
     </header>
   );
 };

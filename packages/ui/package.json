@@ -30,8 +30,8 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -39,8 +39,6 @@
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/cli": "^4.1.18",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.2",
     "eslint": "^8.57.0",
     "eslint-plugin-tailwindcss": "4.0.0-beta.0",
     "tailwindcss": "^4.1.18",

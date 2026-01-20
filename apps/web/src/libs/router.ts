@@ -1,11 +1,12 @@
+import RootErrorPage from '@/pages/error';
 import Layout from '@/pages/layout';
 import NotFoundPage from '@/pages/not-found';
+import ResultErrorPage from '@/pages/result/error';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router';
 
 const StartPage = lazy(() => import('@/pages/index'));
 const ResultPage = lazy(() => import('@/pages/result'));
-
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     Component: Layout,
+    ErrorBoundary: RootErrorPage,
     children: [
       {
         index: true,
@@ -22,6 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/result',
+        ErrorBoundary: ResultErrorPage,
         Component: ResultPage,
       },
     ],

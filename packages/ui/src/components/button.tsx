@@ -66,9 +66,9 @@ export function Button({
 
 function LoadingSpinner({ text = '로딩중' }: { text?: string }) {
   return (
-    <div className="flex items-center justify-center gap-1">
+    <div className="flex flex-1 items-center justify-center gap-1">
       <CircularIndicator size={24} startColor="#ffffff" endColor="#f2f2f2" />
-      {text && <span className="flex-1">{text}</span>}
+      {text && <span>{text}</span>}
     </div>
   );
 }

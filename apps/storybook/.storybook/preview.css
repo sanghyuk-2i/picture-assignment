@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Pretendard 폰트 로드 */
 @font-face {
   font-family: 'Pretendard';
