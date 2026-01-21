@@ -1,5 +1,5 @@
-import '@/styles/global.css';
 import '@repo/ui/styles.css';
+import '@/styles/global.css';
 
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
