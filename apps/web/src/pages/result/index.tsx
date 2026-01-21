@@ -1,79 +1,72 @@
+import { InfoCard, InfoCardItem } from '@/components/pictures/InfoCard';
+import { useTimer } from '@/hooks/useTimer';
 import { usePictureStore } from '@/stores/picture';
-import { NoDataError } from '@/utils/error';
-import { Button, cn, Flex, Grid, Image } from '@repo/ui';
-import { ReactNode } from 'react';
+import { Button, Flex, Grid, Image } from '@repo/ui';
+import { useEffect } from 'react';
 
+import LoadingPage from '@/pages/result/loading';
 import { useNavigate } from 'react-router';
 
-const InfoCardItem = (props: { label: string; value: string; link?: boolean }) => {
-  const { label, value, link = false } = props;
-
+const BackgroundLayer = ({ backgroundUrl }: { backgroundUrl: string }) => {
   return (
-    <div className="flex flex-col">
-      <label>{label}</label>
-      <p className="text-gray-500">
-        {link ? (
-          <a href={value} className="underline" target="_blank" rel="noopener noreferrer">
-            {value}
-          </a>
-        ) : (
-          value
-        )}
-      </p>
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(180deg, #D9D9D9 0%, rgba(217, 217, 217, 0) 100%)',
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url('${backgroundUrl}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.3,
+          filter: 'blur(20px)',
+          transform: 'scale(1.1)',
+        }}
+      />
+
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url("noise-bg.png")`,
+          backgroundRepeat: 'repeat',
+          opacity: 0.15,
+          mixBlendMode: 'overlay',
+        }}
+      />
     </div>
   );
 };
 
-const InfoCard = ({ children, className }: { children: ReactNode; className?: string }) => {
-  return <Grid className={cn('w-full grid-cols-1 gap-2 rounded-2xl bg-white p-5', className)}>{children}</Grid>;
-};
-
 const Page = () => {
   const navigate = useNavigate();
-  const { info: pictureInfo } = usePictureStore();
+  const { info: pictureInfo, remove: removePictureInfo } = usePictureStore();
+  const { start } = useTimer({
+    startFrom: 1,
+    onEnd: () => {
+      navigate('/', { replace: true });
+    },
+  });
 
   const handlePrev = () => {
+    removePictureInfo();
     navigate('/');
   };
 
-  if (!pictureInfo) throw new NoDataError('사진 정보가 없습니다.');
+  useEffect(() => {
+    if (!!pictureInfo?.id) return;
+
+    start();
+  }, [start, pictureInfo?.id]);
+
+  if (!pictureInfo) return <LoadingPage />;
 
   return (
     <>
-      {/* Mask Layer Container */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        {/* Gradient Overlay (Rectangle 1) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(180deg, #D9D9D9 0%, rgba(217, 217, 217, 0) 100%)',
-          }}
-        />
-
-        {/* Blurred Image (image 3) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url('${pictureInfo.urls.download}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.3,
-            filter: 'blur(20px)',
-            transform: 'scale(1.1)',
-          }}
-        />
-
-        {/* Noise Layer */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("noise-bg.png")`,
-            backgroundRepeat: 'repeat',
-            opacity: 0.15,
-            mixBlendMode: 'overlay',
-          }}
-        />
-      </div>
+      <BackgroundLayer backgroundUrl={pictureInfo.urls.download} />
 
       <Grid className="h-fit items-center px-5 lg:h-full lg:grid-cols-2 lg:gap-20">
         <div className="my-10">

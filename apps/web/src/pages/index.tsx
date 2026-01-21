@@ -1,9 +1,17 @@
 import CTASection from '@/components/layouts/CTASection';
+import { useDebouncedCallback } from '@/hooks/useDebounceCallback';
 import usePictureActions from '@/hooks/usePictureActions';
 import { preprocessPictureInfo } from '@/models/picture';
 import { usePictureStore } from '@/stores/picture';
 import { Button, Flex } from '@repo/ui';
-import { useNavigate } from 'react-router';
+import { LoaderFunction, redirect, useNavigate } from 'react-router';
+
+export const mainPageLoader: LoaderFunction = () => {
+  const isPictureInfoAvailable = !!usePictureStore.getState().info?.id;
+  if (isPictureInfoAvailable) return redirect('/result');
+
+  return true;
+};
 
 const Page = () => {
   const navigate = useNavigate();
@@ -29,6 +37,8 @@ const Page = () => {
     }
   };
 
+  const debouncedHandleNext = useDebouncedCallback(handleNext, 300);
+
   return (
     <>
       <Flex as="main" direction="column" alignItems="center" justifyContent="center" className="h-[calc(100%-128px)]">
@@ -40,7 +50,12 @@ const Page = () => {
       </Flex>
 
       <CTASection>
-        <Button fullWidth loading={isGettingPictureInfo} onClick={handleNext} className="md:mx-auto md:w-[335px]">
+        <Button
+          fullWidth
+          loading={isGettingPictureInfo}
+          onClick={debouncedHandleNext}
+          className="md:mx-auto md:w-[335px]"
+        >
           시작
         </Button>
       </CTASection>

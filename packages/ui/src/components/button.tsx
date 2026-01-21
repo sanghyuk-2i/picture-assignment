@@ -43,14 +43,11 @@ export function Button({
   loadingText,
   leftDecorator,
   rightDecorator,
-  disabled,
   className,
   ...props
 }: ButtonProps) {
-  const isDisabled = loading || disabled;
-
   return (
-    <button {...props} className={cn(buttonVariants({ variant, fullWidth }), className)} disabled={isDisabled}>
+    <button {...props} className={cn(buttonVariants({ variant, fullWidth }), className)}>
       {loading ? (
         <LoadingSpinner text={loadingText} />
       ) : (
