@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { getPictureInfo as getPictureInfoService,GetPictureInfoParams } from '@/services/picture';
+import { getPictureInfo as getPictureInfoService, GetPictureInfoParams } from '@/services/picture';
 
 const usePictureActions = () => {
   const { mutateAsync: getPictureInfo, isPending: isGettingPictureInfo } = useMutation({

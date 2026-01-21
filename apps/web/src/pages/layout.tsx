@@ -1,5 +1,6 @@
-import Header from '@/components/layouts/Header';
 import { Outlet, useLocation } from 'react-router';
+
+import Header from '@/components/layouts/Header';
 
 const WHITE_PATHS = ['/result'];
 

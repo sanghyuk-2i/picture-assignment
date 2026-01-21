@@ -14,9 +14,6 @@ importers:
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
-      prettier-plugin-tailwindcss:
-        specifier: ^0.7.2
-        version: 0.7.2(prettier@3.5.3)
       turbo:
         specifier: ^2.7.5
         version: 2.7.5
@@ -36,6 +33,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier-config
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
@@ -69,6 +69,9 @@ importers:
       globals:
         specifier: ^16.5.0
         version: 16.5.0
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
       storybook:
         specifier: ^10.1.11
         version: 10.1.11(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.3)(react@19.2.3)
@@ -115,6 +118,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier-config
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
@@ -136,6 +142,9 @@ importers:
       eslint-plugin-tailwindcss:
         specifier: 4.0.0-beta.0
         version: 4.0.0-beta.0(tailwindcss@4.1.18)
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
@@ -164,6 +173,12 @@ importers:
         specifier: ^8.24.0
         version: 8.53.1(eslint@9.39.2)(typescript@5.9.3)
 
+  packages/prettier-config:
+    dependencies:
+      prettier-plugin-tailwindcss:
+        specifier: ^0.7.2
+        version: 0.7.2(prettier@3.5.3)
+
   packages/tailwind-config:
     devDependencies:
       postcss:
@@ -190,6 +205,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier-config
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../tailwind-config
@@ -211,6 +229,9 @@ importers:
       eslint-plugin-tailwindcss:
         specifier: 4.0.0-beta.0
         version: 4.0.0-beta.0(tailwindcss@4.1.18)
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
       react:
         specifier: ^19.2.0
         version: 19.2.3
@@ -3378,7 +3399,7 @@ packages:
         optional: true
     dependencies:
       prettier: 3.5.3
-    dev: true
+    dev: false
 
   /prettier@3.5.3:
     resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}

@@ -12,32 +12,32 @@ const meta = {
     direction: {
       control: 'select',
       options: ['row', 'column', 'rowReverse', 'columnReverse'],
-      description: "컨테이너의 방향",
+      description: '컨테이너의 방향',
       table: {
         defaultValue: {
-          summary: "row",
+          summary: 'row',
         },
-      }
+      },
     },
     alignItems: {
       control: 'select',
       options: ['start', 'center', 'end', 'stretch', 'baseline'],
-      description: "컨테이너의 아이템 정렬 방법",
+      description: '컨테이너의 아이템 정렬 방법',
       table: {
         defaultValue: {
-          summary: "start",
+          summary: 'start',
         },
-      }
+      },
     },
     justifyContent: {
       control: 'select',
       options: ['start', 'center', 'end', 'spaceBetween', 'spaceAround', 'spaceEvenly'],
-      description: "컨테이너의 아이템 정렬 방법",
+      description: '컨테이너의 아이템 정렬 방법',
       table: {
         defaultValue: {
-          summary: "start",
+          summary: 'start',
         },
-      }
+      },
     },
   },
 } satisfies Meta<typeof Flex>;

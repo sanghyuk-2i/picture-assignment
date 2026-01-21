@@ -1,10 +1,11 @@
-import Providers from '@/components/providers';
-import { router } from '@/libs/router';
+import '@/styles/global.css';
 import '@repo/ui/styles.css';
+
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 
-import '@/styles/global.css';
+import Providers from '@/components/providers';
+import { router } from '@/libs/router';
 
 const App = () => (
   <Providers>

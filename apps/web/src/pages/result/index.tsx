@@ -1,11 +1,11 @@
-import { InfoCard, InfoCardItem } from '@/components/pictures/InfoCard';
-import { useTimer } from '@/hooks/useTimer';
-import { usePictureStore } from '@/stores/picture';
 import { Button, Flex, Grid, Image } from '@repo/ui';
 import { useEffect } from 'react';
-
-import LoadingPage from '@/pages/result/loading';
 import { useNavigate } from 'react-router';
+
+import { InfoCard, InfoCardItem } from '@/components/pictures/InfoCard';
+import { useTimer } from '@/hooks/useTimer';
+import LoadingPage from '@/pages/result/loading';
+import { usePictureStore } from '@/stores/picture';
 
 const BackgroundLayer = ({ backgroundUrl }: { backgroundUrl: string }) => {
   return (
@@ -57,7 +57,7 @@ const Page = () => {
   };
 
   useEffect(() => {
-    if (!!pictureInfo?.id) return;
+    if (pictureInfo?.id) return;
 
     start();
   }, [start, pictureInfo?.id]);

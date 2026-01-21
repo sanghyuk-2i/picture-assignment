@@ -11,21 +11,21 @@ const meta = {
   argTypes: {
     columns: {
       control: 'number',
-      description: "Grid 컨테이너의 열 개수",
+      description: 'Grid 컨테이너의 열 개수',
       table: {
         defaultValue: {
-          summary: "undefined",
+          summary: 'undefined',
         },
-      }
+      },
     },
     rows: {
       control: 'number',
-      description: "Grid 컨테이너의 행 개수",
+      description: 'Grid 컨테이너의 행 개수',
       table: {
         defaultValue: {
-          summary: "undefined",
+          summary: 'undefined',
         },
-      }
+      },
     },
   },
 } satisfies Meta<typeof Grid>;

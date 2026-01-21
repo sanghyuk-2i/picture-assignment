@@ -1,5 +1,6 @@
-import { InfoCard } from '@/components/pictures/InfoCard';
 import { Flex, Grid, Skeleton } from '@repo/ui';
+
+import { InfoCard } from '@/components/pictures/InfoCard';
 
 const InfoItemSkeleton = () => {
   return (

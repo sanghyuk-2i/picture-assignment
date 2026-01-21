@@ -1,10 +1,11 @@
+import { Button, Flex } from '@repo/ui';
+import { LoaderFunction, redirect, useNavigate } from 'react-router';
+
 import CTASection from '@/components/layouts/CTASection';
 import { useDebouncedCallback } from '@/hooks/useDebounceCallback';
 import usePictureActions from '@/hooks/usePictureActions';
 import { preprocessPictureInfo } from '@/models/picture';
 import { usePictureStore } from '@/stores/picture';
-import { Button, Flex } from '@repo/ui';
-import { LoaderFunction, redirect, useNavigate } from 'react-router';
 
 export const mainPageLoader: LoaderFunction = () => {
   const isPictureInfoAvailable = !!usePictureStore.getState().info?.id;
@@ -21,7 +22,7 @@ const Page = () => {
   const handleNext = async () => {
     if (isGettingPictureInfo) return;
 
-    if (!!pictureInfo?.id) {
+    if (pictureInfo?.id) {
       navigate('/result');
       return;
     }
