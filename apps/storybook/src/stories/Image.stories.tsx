@@ -1,6 +1,7 @@
+import { Image } from '@repo/ui';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Image } from '@repo/ui';
+import { fn } from 'storybook/test';
 
 const meta: Meta<typeof Image> = {
   title: 'Components/Image',
@@ -9,7 +10,48 @@ const meta: Meta<typeof Image> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {},
+  args: {
+    onLoad: fn(),
+  },
+  argTypes: {
+    aspectRatio: {
+      control: 'select',
+      options: ['4 / 3', '16 / 9', '1 / 1'],
+      description: "이미지의 비율",
+      table: {
+        defaultValue: {
+          summary: "4 / 3",
+        },
+      }
+    },
+    src: {
+      control: 'text',
+      description: "이미지의 소스 URL",
+      table: {
+        defaultValue: {
+          summary: "undefined",
+        },
+      }
+    },
+    alt: {
+      control: 'text',
+      description: "이미지의 대체 텍스트",
+      table: {
+        defaultValue: {
+          summary: "undefined",
+        },
+      }
+    },
+    className: {
+      control: 'text',
+      description: "이미지의 클래스",
+      table: {
+        defaultValue: {
+          summary: "undefined",
+        },
+      }
+    },
+  },
   decorators: [
     Story => (
       <div style={{ width: '400px' }}>

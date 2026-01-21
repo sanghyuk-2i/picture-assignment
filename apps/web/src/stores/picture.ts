@@ -1,6 +1,7 @@
-import { PictureInfo } from '@/models/picture';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
+
+import { PictureInfo } from '@/models/picture';
 
 interface PictureStore {
   info: PictureInfo | null;

@@ -1,10 +1,13 @@
-import type { Preview } from '@storybook/react-vite';
-
 import '@repo/ui/styles.css';
 import './preview.css';
 
+import type { Preview } from '@storybook/react-vite';
+
 const preview: Preview = {
   parameters: {
+    docs: {
+      codePanel: true,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

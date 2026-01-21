@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-
 import { Skeleton } from '@repo/ui';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Components/Skeleton',
@@ -13,6 +12,21 @@ const meta = {
     variant: {
       control: 'select',
       options: ['default', 'circle', 'square'],
+      description: "스켈레톤의 형태",
+      table: {
+        defaultValue: {
+          summary: "default",
+        },
+      }
+    },
+    className: {
+      control: 'text',
+      description: "스켈레톤의 클래스",
+      table: {
+        defaultValue: {
+          summary: "undefined",
+        },
+      }
     },
   },
 } satisfies Meta<typeof Skeleton>;

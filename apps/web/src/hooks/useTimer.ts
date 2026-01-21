@@ -35,7 +35,9 @@ export const useTimer = (props: UseTimerProps) => {
         const newSeconds = prevSeconds - 1;
 
         if (newSeconds <= 0) {
-          timer.current && clearInterval(timer.current);
+          if (timer.current) {
+            clearInterval(timer.current);
+          }
           return 0;
         }
 
@@ -45,11 +47,15 @@ export const useTimer = (props: UseTimerProps) => {
   }, []);
 
   const pause = () => {
-    timer.current && clearInterval(timer.current);
+    if (timer.current) {
+      clearInterval(timer.current);
+    }
   };
 
   const stop = () => {
-    timer.current && clearInterval(timer.current);
+    if (timer.current) {
+      clearInterval(timer.current);
+    }
     setSeconds(0);
   };
 

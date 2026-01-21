@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-
 import { Flex } from '@repo/ui';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Components/Flex',
@@ -13,14 +12,32 @@ const meta = {
     direction: {
       control: 'select',
       options: ['row', 'column', 'rowReverse', 'columnReverse'],
+      description: "컨테이너의 방향",
+      table: {
+        defaultValue: {
+          summary: "row",
+        },
+      }
     },
     alignItems: {
       control: 'select',
       options: ['start', 'center', 'end', 'stretch', 'baseline'],
+      description: "컨테이너의 아이템 정렬 방법",
+      table: {
+        defaultValue: {
+          summary: "start",
+        },
+      }
     },
     justifyContent: {
       control: 'select',
       options: ['start', 'center', 'end', 'spaceBetween', 'spaceAround', 'spaceEvenly'],
+      description: "컨테이너의 아이템 정렬 방법",
+      table: {
+        defaultValue: {
+          summary: "start",
+        },
+      }
     },
   },
 } satisfies Meta<typeof Flex>;

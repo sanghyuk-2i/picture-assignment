@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-
 import { Grid } from '@repo/ui';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Components/Grid',
@@ -12,9 +11,21 @@ const meta = {
   argTypes: {
     columns: {
       control: 'number',
+      description: "Grid 컨테이너의 열 개수",
+      table: {
+        defaultValue: {
+          summary: "undefined",
+        },
+      }
     },
     rows: {
       control: 'number',
+      description: "Grid 컨테이너의 행 개수",
+      table: {
+        defaultValue: {
+          summary: "undefined",
+        },
+      }
     },
   },
 } satisfies Meta<typeof Grid>;

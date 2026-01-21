@@ -13,7 +13,7 @@
     "build:ui": "turbo run build --filter=ui"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
+    "eslint": "^9.18.0",
     "prettier": "^3.5.3",
     "turbo": "^2.7.5",
     "prettier-plugin-tailwindcss": "^0.7.2"
